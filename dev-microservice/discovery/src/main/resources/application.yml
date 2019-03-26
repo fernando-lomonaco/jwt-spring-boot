@@ -2,7 +2,7 @@ spring:
   application:
     name: registry
 server:
-  port: 8081
+  port: 9091
   
 eureka:
   client:
