@@ -1,23 +1,21 @@
 package academy.lomonaco.auth.security.config;
 
+import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 
+import academy.lomonaco.auth.security.filter.JwtUsernameAndPasswordAuthenticationFilter;
 import academy.lomonaco.core.property.JwtConfiguration;
-
-import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
-
-import javax.servlet.http.HttpServletResponse;
-
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -41,7 +39,7 @@ public class SecurityCrendentialsConfig extends WebSecurityConfigurerAdapter {
 		.and() //exception de EntryPoint - qualquer expection retorn Unauthorized
 			.exceptionHandling().authenticationEntryPoint((req,resp,e) -> resp.sendError(HttpServletResponse.SC_UNAUTHORIZED))
 		.and() //sera executado todas as vezes que fizer uma requisicao
-			.addFilter(new UsernamePasswordAuthenticationFilter())
+			.addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfiguration))
 		.authorizeRequests()
 			.antMatchers(jwtConfiguration.getLoginUrl()).permitAll()
 			.antMatchers("/course/admin/**").hasRole("ADMIN")
@@ -57,7 +55,7 @@ public class SecurityCrendentialsConfig extends WebSecurityConfigurerAdapter {
 
 	// password hashing function
 	@Bean
-	private BCryptPasswordEncoder passwordEncoder() {
+	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 }

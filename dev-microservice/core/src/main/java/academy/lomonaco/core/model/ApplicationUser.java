@@ -35,6 +35,7 @@ public class ApplicationUser implements AbastractEntity {
 	private String username;
 	@NotNull(message = "O campo password é obrigatorio")
 	@Column(nullable = false)
+	@ToString.Exclude
 	private String password;
 	@NotNull(message = "O campo role é obrigatorio")
 	@Column(nullable = false)
