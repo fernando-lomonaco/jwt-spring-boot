@@ -18,9 +18,16 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<core.version>0.0.1-SNAPSHOT</core.version>
+		<token.version>0.0.1-SNAPSHOT</token.version>
 	</properties>
 
 	<dependencies>
+	
+		<dependency>
+			<groupId>academy.lomonaco</groupId>
+			<artifactId>token</artifactId>
+			<version>${token.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>academy.lomonaco</groupId>
@@ -64,3 +71,4 @@
 	</build>
 
 </project>
+
