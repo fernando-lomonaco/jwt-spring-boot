@@ -23,6 +23,7 @@
 	</properties>
 	
 	<dependencies>
+	
 		<dependency>
 			<groupId>academy.lomonaco</groupId>
 			<artifactId>core</artifactId>

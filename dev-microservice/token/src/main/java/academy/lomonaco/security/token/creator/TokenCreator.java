@@ -84,6 +84,7 @@ public class TokenCreator {
 						.stream()
 						.map(GrantedAuthority::getAuthority)
 						.collect(Collectors.toList()))
+				.claim("userId", applicationUSer.getId())
 				.issuer("http://google.com")
 				.issueTime(new Date())
 				.expirationTime(new Date(System.currentTimeMillis() + (jwtConfiguration.getExpiration() * 1000)))
