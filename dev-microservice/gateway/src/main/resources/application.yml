@@ -19,3 +19,6 @@ zuul:
   sensitive-headers: Cookie
      
   
+jwt:
+  config:
+    login-url: /auth/login

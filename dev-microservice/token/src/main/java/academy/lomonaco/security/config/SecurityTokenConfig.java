@@ -13,8 +13,9 @@ import academy.lomonaco.core.property.JwtConfiguration;
 import lombok.RequiredArgsConstructor;
 
 /**
- * classe de seguranca
+ * classe de seguranca de autenticacao
  *
+ * obs.: nao temos @EnableWebSecurity
  */
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
@@ -33,7 +34,7 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
 		.and() 
 		.authorizeRequests()
 			.antMatchers(jwtConfiguration.getLoginUrl()).permitAll()
-			.antMatchers("/course/admin/**").hasRole("ADMIN")
+			.antMatchers("/course/v1/admin/**").hasRole("ADMIN")
 			.anyRequest().authenticated();
 	}
 

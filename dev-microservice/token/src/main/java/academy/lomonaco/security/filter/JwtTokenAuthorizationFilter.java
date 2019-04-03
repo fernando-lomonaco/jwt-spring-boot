@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
-import org.springframework.lang.NonNullApi;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.nimbusds.jwt.SignedJWT;
@@ -20,18 +19,16 @@ import academy.lomonaco.security.token.converter.TokenConverter;
 import academy.lomonaco.security.util.SecurityContextUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * esta classe sera executado em todas as requisicoes garante que sera executado
  * apenas uma vez por request
  */
-@Slf4j
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class JwtTokenAuthorizationFilter extends OncePerRequestFilter {
 
-	private final JwtConfiguration jwtConfiguration;
-	private final TokenConverter tokenConverter;
+	protected final JwtConfiguration jwtConfiguration;
+	protected final TokenConverter tokenConverter;
 
 	@Override
 	protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response,
