@@ -22,3 +22,8 @@ zuul:
 jwt:
   config:
     login-url: /auth/login
+
+# load balancer do Eureka - utiliza-se ribbon
+ribbon:
+  ReadTimeout: 10000
+  ConectTimeout: 10000

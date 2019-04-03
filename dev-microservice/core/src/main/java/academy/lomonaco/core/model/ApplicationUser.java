@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -23,6 +25,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ApplicationUser implements AbastractEntity {
 
 	private static final long serialVersionUID = -5382321668933592553L;
@@ -39,6 +42,7 @@ public class ApplicationUser implements AbastractEntity {
 	private String password;
 	@NotNull(message = "O campo role é obrigatorio")
 	@Column(nullable = false)
+	@Builder.Default
 	// TODOS USUARIOS COMECAM COMO USER
 	private String role = "USER";
 
