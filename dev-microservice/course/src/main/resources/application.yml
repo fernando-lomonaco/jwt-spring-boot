@@ -26,4 +26,6 @@ spring:
   jmx:
     enabled: false
     
-
+jwt:
+  config:
+    type: signed

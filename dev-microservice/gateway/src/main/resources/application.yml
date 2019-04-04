@@ -22,6 +22,7 @@ zuul:
 jwt:
   config:
     login-url: /auth/login
+    type: signed
 
 # load balancer do Eureka - utiliza-se ribbon
 ribbon:

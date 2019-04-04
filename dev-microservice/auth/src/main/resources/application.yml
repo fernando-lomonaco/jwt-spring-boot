@@ -25,3 +25,7 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
   jmx:
     enabled: false
+
+jwt:
+  config:
+    type: signed

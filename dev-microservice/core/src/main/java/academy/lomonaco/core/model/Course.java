@@ -25,6 +25,8 @@ import lombok.ToString;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Course implements AbastractEntity {
 
+	private static final long serialVersionUID = -3912535258317244982L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@EqualsAndHashCode.Include

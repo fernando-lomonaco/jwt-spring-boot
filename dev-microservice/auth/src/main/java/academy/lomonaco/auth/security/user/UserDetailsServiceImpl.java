@@ -37,6 +37,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	private static final class CustomerUserDetails extends ApplicationUser implements UserDetails {
 
+		private static final long serialVersionUID = -8592339315239493589L;
+
 		CustomerUserDetails(@NotNull ApplicationUser applicationUser) {
 			super(applicationUser);
 		}
