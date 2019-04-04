@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import academy.lomonaco.core.property.JwtConfiguration;
 
 @SpringBootApplication
-@EntityScan({ "academy.lomonaco.core.model" })
+@EntityScan({ "academy.lomonaco.core.model", "academy.lomonaco.core.docs" })
 @EnableJpaRepositories({ "academy.lomonaco.core.repository" })
 @EnableConfigurationProperties(value = JwtConfiguration.class )
 @ComponentScan("academy.lomonaco")
