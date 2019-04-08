@@ -9,7 +9,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig extends BaseSwaggerConfig {
 
-	public SwaggerConfig(String basePackage) {
+	public SwaggerConfig() {
 		super("academy.lomonaco.course.endpoint.controller");
 	}
 
